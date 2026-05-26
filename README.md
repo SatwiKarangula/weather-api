@@ -219,6 +219,7 @@ MongoDB Connected Successfully
 ## Endpoint
 
 ```http
+POST /weather
 ```
 
 ## Request Body
@@ -498,14 +499,7 @@ K. Satwik
 B.Tech – Computer Science Engineering (AI & ML)
 Andhra Loyola Institute of Engineering and Technology
 Vijayawada, Andhra Pradesh
-  "temperature": 28,
-  "city": "Bangalore",
-POST /weather
 
----
-Server running on port 3000
-
-node server.js
 
 Start the server:
 

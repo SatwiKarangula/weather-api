@@ -121,8 +121,8 @@ Create a database username and password.
 Example:
 
 ```text
-Username: satwikarangula_db_user
-Password: devops123
+Username: satwik_db_user
+Password: abcdefg
 ```
 
 ---
@@ -170,7 +170,7 @@ Example:
 ```env
 PORT=3000
 
-MONGO_URI=mongodb+srv://satwikarangula_db_user:devops123@weather-api.vlnf710.mongodb.net/weatherDB?retryWrites=true&w=majority&appName=weather-api
+MONGO_URI=mongodb+srv://cluster_name:user_password@weather-api.vlnf710.mongodb.net/weatherDB?retryWrites=true&w=majority&appName=weather-api
 ```
 
 ---
@@ -513,7 +513,7 @@ Start the server:
 
 
 ---
-npm install
+node server.js
 
 ```
 

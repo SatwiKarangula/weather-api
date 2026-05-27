@@ -1,4 +1,5 @@
 const Weather = require('../models/Weather');
+const axios = require('axios');
 
 exports.createWeather = async (req, res) => {
 
@@ -119,3 +120,87 @@ exports.deleteWeather = async (req, res) => {
 };
 
 
+exports.getWeatherByCity = async (req, res) => {
+
+    try {
+
+        const cityName = req.params.city;
+
+        const weather = await Weather.findOne({
+
+            city: cityName
+
+        });
+
+        if (!weather) {
+
+            return res.status(404).json({
+                error: 'City Not Found'
+            });
+
+        }
+
+        res.status(200).json(weather);
+
+    } catch (error) {
+
+        res.status(500).json({
+            error: 'Server Error'
+        });
+
+    }
+
+};
+exports.fetchAndStoreWeather = async (req, res) => {
+
+    try {
+
+        const city = req.params.city;
+
+        // Fetch data from OpenWeather API
+
+        const response = await axios.get(
+
+            `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.WEATHER_API_KEY}&units=metric`
+
+        );
+
+        // Extract required data
+
+        const weatherData = {
+
+            city: response.data.name,
+
+            temperature: response.data.main.temp,
+
+            weather: response.data.weather[0].description
+
+        };
+
+        // Save into MongoDB
+
+        const newWeather = new Weather(weatherData);
+
+        await newWeather.save();
+
+        // Return response
+
+        res.status(200).json({
+
+            message: 'Weather fetched and stored successfully',
+
+            data: newWeather
+
+        });
+
+    } catch (error) {
+
+        res.status(500).json({
+
+            error: 'Failed to fetch weather data'
+
+        });
+
+    }
+
+};

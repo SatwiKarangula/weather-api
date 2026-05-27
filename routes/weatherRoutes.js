@@ -8,7 +8,8 @@ const {
     getAllWeather,
     getWeatherById,
     updateWeather,
-    deleteWeather
+    deleteWeather,
+    fetchAndStoreWeather
 
 } = require('../controllers/weatherController');
 
@@ -21,5 +22,7 @@ router.get('/:id', getWeatherById);
 router.put('/:id', updateWeather);
 
 router.delete('/:id', deleteWeather);
+
+router.get('/live/:city', fetchAndStoreWeather);
 
 module.exports = router;

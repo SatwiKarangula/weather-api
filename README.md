@@ -683,6 +683,6 @@ node server.js
 # Author
 
 K. Satwik
-B.Tech — Computer Science Engineering (AI & ML)
-Andhra Loyola Institute of Engineering and Technology
+B.Tech — Computer Science Engineering (AI & ML),
+Andhra Loyola Institute of Engineering and Technology,
 Vijayawada, Andhra Pradesh

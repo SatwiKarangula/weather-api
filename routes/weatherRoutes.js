@@ -9,7 +9,8 @@ const {
     getWeatherById,
     updateWeather,
     deleteWeather,
-    fetchAndStoreWeather
+    fetchAndStoreWeather,
+    getWeatherByCity
 
 } = require('../controllers/weatherController');
 
@@ -18,6 +19,8 @@ router.post('/', createWeather);
 router.get('/', getAllWeather);
 
 router.get('/:id', getWeatherById);
+
+router.get('/city/:city', getWeatherByCity);
 
 router.put('/:id', updateWeather);
 
